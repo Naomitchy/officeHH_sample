@@ -733,8 +733,17 @@
         padding: 30px 20px;
       }
 
+      /* === ヘッダー固定（スマホ対応） === */
+      header {
+        background: rgba(253, 251, 250, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 10px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
       /* === 泣き別れ防止 (モバイル専用) === */
-      /* 日本語テキストの単語単位改行制御 */
+      /* 全テキスト要素を画面幅で自然に折り返す */
       .empathy-list li,
       .effect-content h3,
       .effect-content p,
@@ -745,8 +754,8 @@
       .price-card-desc,
       .flow-content p,
       .flow-content h4 {
-        word-break: keep-all;
-        overflow-wrap: break-word;
+        word-break: normal;
+        overflow-wrap: anywhere;
       }
 
       /* PC向けの <br> をスマホでは非表示にして自然な折り返しにする */
@@ -785,7 +794,7 @@
 
         <div class="empathy-box" data-aos="fade-up" data-aos-delay="200">
           <ul class="empathy-list">
-            <li>50代後半になるが、いまだに性体験がない。このまま経験せずに人生を終えてよいのかという焦りがある一方、踏み出すのも怖く、そもそも相手がいない。</li>
+            <li>40代後半になるが、いまだに性体験がない。このまま経験せずに人生を終えてよいのかという焦りがある一方、踏み出すのも怖く、そもそも相手がいない。</li>
             <li>セックスレス歴20年。今では妻に触れることさえ怖い。このままでいいのか、それとも離婚すべきなのか、答えが出せずにいる。</li>
             <li>好きになるのはいつも妻子ある人ばかり。30代後半になり、結婚もしたいし子供も欲しいのに、自分が幸せな結婚をできる未来が全く想像できない。</li>
             <li>他人の恋愛ばかり応援して、自分自身のことは後回し。周囲には「恋愛はもういい」と強がっているけれど、本心では恋愛も結婚も諦めきれない自分がいる。</li>
@@ -996,7 +1005,7 @@
           </div>
           <div class="profile-text">
             <h3 class="serif">Hiroya Hishiko</h3>
-            <p class="role">office HH / 恋愛・ライフコーチ / パーソナルカラーアナリスト</p>
+            <p class="role">Office HH代表 / 恋愛・ライフコーチ / パーソナルカラーアナリスト</p>
             <ul class="profile-list">
               <li><i class="fa-solid fa-building"></i> 2000年より自動車部品メーカー勤務。<br>現在、人事総務部として採用・教育を担当。</li>
               <li><i class="fa-solid fa-child-reaching"></i> 2児の母（7歳＆5歳の男の子）</li>
