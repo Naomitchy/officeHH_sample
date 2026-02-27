@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiroya Hishiko | 恋愛/ライフコーチ × パーソナルカラーアナリスト - Office HH</title>
+  <meta name="description" content="本来のあなたらしさを咲かせる、内なるジャーニーへ。恋愛/ライフコーチ Hiroya Hishikoのオフィシャルサイト。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       CSS Variables & Base Reset
+    ========================================= */
+    :root {
+      --color-primary: #e0b4b4;
+      /* 優しく淡いくすみピンク */
+      --color-primary-dark: #c48b8b;
+      --color-accent: #b56c6c;
+      /* CTA用の目立つアクセントカラー */
+      --color-accent-hover: #9e5b5b;
+      --color-bg-base: #fdfbfaf0;
+      /* 温かみのあるオフホワイト */
+      --color-bg-sub: #faf5f5;
+      /* セクション背景用の極薄いピンク */
+      --color-text-main: #4a4544;
+      /* 柔らかなチャコールグレー */
+      --color-text-light: #7a7373;
+
+      --font-heading: 'Shippori Mincho', serif;
+      --font-body: 'Zen Kaku Gothic New', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text-main);
+      background-color: var(--color-bg-base);
+      line-height: 1.8;
+      letter-spacing: 0.05em;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .serif {
+      font-family: var(--font-heading);
+      font-weight: 500;
+    }
+
+    /* =========================================
+       Common Components
+    ========================================= */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    section {
+      padding: 120px 0;
+    }
+
+    .bg-sub {
+      background-color: var(--color-bg-sub);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 60px;
+      color: var(--color-text-main);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background-color: var(--color-accent);
+      margin: 20px auto 0;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-accent);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .btn-cta {
+      background-color: var(--color-accent);
+      color: #fff;
+      padding: 0 30px;
+      height: 50px;
+      border-radius: 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(181, 108, 108, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(181, 108, 108, 0.4);
+      opacity: 1;
+    }
+
+    /* =========================================
+       Header (Sticky Frost Glass)
+    ========================================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    header.scrolled {
+      background: rgba(253, 251, 250, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .header-cta {
+      height: 44px;
+      padding: 0 20px;
+      font-size: 0.9rem;
+    }
+
+    /* =========================================
+       1. Hero (第一印象)
+    ========================================= */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      background: linear-gradient(rgba(253, 251, 250, 0.4), rgba(253, 251, 250, 0.8)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .hero-content {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 60px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      color: var(--color-text-main);
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    /* =========================================
+       2. 共感 (悩みへの寄り添い)
+    ========================================= */
+    .empathy-box {
+      background: #fff;
+      padding: 60px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .empathy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .empathy-list li {
+      padding-left: 40px;
+      position: relative;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-text-main);
+    }
+
+    .empathy-list li::before {
+      content: '\f00c';
+      font-family: 'FontAwesome';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--color-primary-dark);
+      font-size: 1.4rem;
+    }
+
+    /* =========================================
+       3. 解決策 (Service / 効果・流れ・料金)
+    ========================================= */
+    .service-block {
+      margin-bottom: 140px;
+    }
+
+    .service-block:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 効果リスト (スッキリ化) */
+    .effects-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .effect-item {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 30px 10px;
+    }
+
+    .effect-item:first-child {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .effect-item:last-child {
+      border-bottom: none;
+    }
+
+    .effect-num {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      color: var(--color-primary-dark);
+      line-height: 1;
+      opacity: 0.6;
+      font-style: italic;
+      min-width: 45px;
+      padding-top: 2px;
+    }
+
+    .effect-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: var(--color-text-main);
+    }
+
+    .effect-content p {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* セッションの流れ */
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .flow-step {
+      display: flex;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .flow-time {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 30px 20px;
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .flow-time .title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+    }
+
+    .flow-time .time {
+      font-size: 0.85rem;
+      margin-top: 5px;
+      opacity: 0.9;
+    }
+
+    .flow-content {
+      padding: 30px;
+      flex: 1;
+    }
+
+    .flow-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--color-accent);
+    }
+
+    .flow-content p {
+      font-size: 0.95rem;
+    }
+
+    /* プラン・料金 (3列横並び) */
+    .pricing-wrap {
+      background: #fff;
+      border-radius: 20px;
+      padding: 60px 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 確実に3列にする設定 */
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .price-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card.recommend {
+      border: 2px solid var(--color-accent);
+      background-color: var(--color-bg-sub);
+      transform: scale(1.03);
+      /* 推奨プランを少し大きく見せる */
+      box-shadow: 0 10px 25px rgba(181, 108, 108, 0.05);
+      z-index: 1;
+    }
+
+    .price-card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 15px;
+    }
+
+    .price-card-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-bottom: 25px;
+    }
+
+    .price-card-bottom {
+      margin-top: auto;
+      /* 高さが違っても価格部分を下揃えにする */
+    }
+
+    .price-normal {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      text-decoration: line-through;
+      margin-bottom: 5px;
+    }
+
+    .price-monitor {
+      color: var(--color-accent);
+      font-size: 1.7rem;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .pricing-note {
+      background: var(--color-bg-sub);
+      padding: 40px;
+      border-radius: 12px;
+    }
+
+    .pricing-note h4 {
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      margin-bottom: 15px;
+    }
+
+    /* =========================================
+       4. 証拠 (Voice)
+    ======================================== */
+    .voice-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .voice-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .voice-card::before {
+      content: '\f10d';
+      font-family: 'FontAwesome';
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: var(--color-primary);
+      opacity: 0.2;
+      font-size: 2.5rem;
+    }
+
+    .voice-text {
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+    }
+
+    .voice-label {
+      display: inline-block;
+      background: var(--color-bg-sub);
+      color: var(--color-accent);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    /* =========================================
+       5. プロフィール (Profile)
+    ========================================= */
+    .profile-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .profile-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .profile-image img {
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .profile-text {
+      flex: 1.2;
+      min-width: 300px;
+    }
+
+    .profile-text h3 {
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-text .role {
+      color: var(--color-primary-dark);
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .profile-list li {
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .profile-list li i {
+      position: absolute;
+      left: 0;
+      top: 6px;
+      color: var(--color-primary-dark);
+    }
+
+    .story-box {
+      background: #fff;
+      padding: 60px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    .story-box h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.6rem;
+      color: var(--color-accent);
+    }
+
+    .story-box p {
+      margin-bottom: 1.5rem;
+    }
+
+    .story-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================================
+       6. 行動 (CTA / Contact)
+    ========================================= */
+    .contact-section {
+      background: linear-gradient(135deg, var(--color-bg-sub) 0%, var(--color-bg-base) 100%);
+    }
+
+    .form-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .required {
+      background: var(--color-accent);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #e2dddc;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      transition: all 0.3s;
+      background-color: var(--color-bg-base);
+      min-height: 50px;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background-color: #fff;
+      box-shadow: 0 0 0 3px rgba(181, 108, 108, 0.15);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+
+    /* =========================================
+       Footer
+    ========================================= */
+    footer {
+      background: var(--color-text-main);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* =========================================
+       Responsive Adjustments
+    ========================================= */
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 40px 30px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+      }
+
+      .empathy-box {
+        padding: 40px 30px;
+      }
+
+      .effect-item {
+        flex-direction: column;
+        gap: 10px;
+        padding: 25px 0;
+      }
+
+      .effect-num {
+        font-size: 2rem;
+      }
+
+      .pricing-wrap {
+        padding: 40px 20px;
+      }
+
+      /* スマホ閲覧時は文字が小さくなりすぎるため、自動で縦並びになります */
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card.recommend {
+        transform: scale(1);
+      }
+
+      .flow-step {
+        flex-direction: column;
+      }
+
+      .flow-time {
+        width: 100%;
+        padding: 15px;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .flow-time .time {
+        margin-top: 0;
+      }
+
+      .story-box,
+      .form-wrapper {
+        padding: 30px 20px;
+      }
+
+      /* === 泣き別れ防止 (モバイル専用) === */
+      /* 日本語テキストの単語単位改行制御 */
+      .empathy-list li,
+      .effect-content h3,
+      .effect-content p,
+      .story-box p,
+      .voice-text,
+      .pricing-note p,
+      .profile-list li,
+      .price-card-desc,
+      .flow-content p,
+      .flow-content h4 {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      /* PC向けの <br> をスマホでは非表示にして自然な折り返しにする */
+      .story-box p br,
+      .hero-content p br,
+      .profile-list li br,
+      .price-card-desc br {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="container header-inner">
+      <div class="logo">Office HH</div>
+      <a href="#contact" class="btn-cta header-cta">予約・相談</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+        <p class="hero-subtitle">恋愛/ライフコーチ × パーソナルカラーアナリスト</p>
+        <h1 class="hero-title serif">Hiroya Hishiko</h1>
+        <p>本来のあなたらしさを咲かせる、<br>内なるジャーニーへ。</p>
+      </div>
+    </section>
+
+    <section id="empathy" class="bg-sub">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">For You</div>
+        <h2 class="section-title serif" data-aos="fade-up" data-aos-delay="100">こんなお悩みはありませんか？</h2>
+
+        <div class="empathy-box" data-aos="fade-up" data-aos-delay="200">
+          <ul class="empathy-list">
+            <li>50代後半になるが、いまだに性体験がない。このまま経験せずに人生を終えてよいのかという焦りがある一方、踏み出すのも怖く、そもそも相手がいない。</li>
+            <li>セックスレス歴20年。今では妻に触れることさえ怖い。このままでいいのか、それとも離婚すべきなのか、答えが出せずにいる。</li>
+            <li>好きになるのはいつも妻子ある人ばかり。30代後半になり、結婚もしたいし子供も欲しいのに、自分が幸せな結婚をできる未来が全く想像できない。</li>
+            <li>他人の恋愛ばかり応援して、自分自身のことは後回し。周囲には「恋愛はもういい」と強がっているけれど、本心では恋愛も結婚も諦めきれない自分がいる。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="container">
+
+        <div class="service-block">
+          <div class="section-subtitle" data-aos="fade-up">Effects</div>
+          <h2 class="section-title serif" data-aos="fade-up">コーチングを受けると</h2>
+
+          <div class="effects-list">
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">01</div>
+              <div class="effect-content">
+                <h3 class="serif">課題の構造化とボトルネックの特定</h3>
+                <p>複雑に絡み合った感情や状況を言語化・分解することで、「いま自分が本当に対処すべき根本原因（ボトルネック）」を客観的に把握できるようになります。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">02</div>
+              <div class="effect-content">
+                <h3 class="serif">認知バイアスの特定と心理的ブレーキの解除</h3>
+                <p>「どうせ無理」「こうすべき」といった過去の経験に基づく無意識の思考パターン（メンタルブロック）を分析し、行動を制限している心理的ブレーキを論理的に外します。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">03</div>
+              <div class="effect-content">
+                <h3 class="serif">他者依存から脱却した「自己決定基準」の構築</h3>
+                <p>世間体や年齢といった外部の指標ではなく、「自分が何を最優先事項とするか」という確固たる判断基準を持つことで、他人に振り回されない迷いのない意思決定が可能になります。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">04</div>
+              <div class="effect-content">
+                <h3 class="serif">感情のメタ認知とデータ化</h3>
+                <p>不安や恐れなどの感情に飲み込まれるのではなく、「なぜその感情が湧いたのか」を一歩引いて観察し、現状を改善するための客観的なデータとしてコントロールできるようになります。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">05</div>
+              <div class="effect-content">
+                <h3 class="serif">無駄な自己否定の停止による思考リソースの確保</h3>
+                <p>「できない自分」を責めることで浪費していたエネルギーをストップ。現在の立ち位置をフラットに受け入れることで、問題解決のための行動へリソースを集中させることができます。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">06</div>
+              <div class="effect-content">
+                <h3 class="serif">健全な境界線（バウンダリー）の再設定</h3>
+                <p>他者への過剰な配慮や依存を手放し、適切な距離感を論理的に理解することで、無用な摩擦やストレスのない対等なコミュニケーションが構築可能になります。</p>
+              </div>
+            </div>
+            <div class="effect-item" data-aos="fade-up">
+              <div class="effect-num">07</div>
+              <div class="effect-content">
+                <h3 class="serif">実現可能な「スモールステップ」の設計</h3>
+                <p>目標や理想を漠然とした精神論で終わらせず、今の自分が明日から実行できる具体的な行動計画（アクションプラン）に落とし込むことで、確実な変化を生み出します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-block">
+          <div class="section-subtitle" data-aos="fade-up">Flow</div>
+          <h2 class="section-title serif" data-aos="fade-up">セッションの流れ</h2>
+          <div class="flow-steps">
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="100">
+              <div class="flow-time">
+                <span class="title">無料体験</span>
+                <span class="time">(60分)</span>
+              </div>
+              <div class="flow-content">
+                <h4>コーチとの相性も大切です</h4>
+                <p>Co-Activeコーチングについて、Hiroyaってどんな人？など近況をお聞きしながら、サンプルセッションを20分ほど予定しています。</p>
+              </div>
+            </div>
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="200">
+              <div class="flow-time">
+                <span class="title">導入</span>
+                <span class="time">(120分)</span>
+              </div>
+              <div class="flow-content">
+                <h4>意図的な協働関係の構築</h4>
+                <p>どんな雰囲気で進めたいか、セッションを進める上での価値観共有やルール決めを行います。今後のスケジュールについてもこの時に決めていきます。</p>
+              </div>
+            </div>
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="300">
+              <div class="flow-time">
+                <span class="title">セッション</span>
+                <span class="time">(60分) × 6回〜</span>
+              </div>
+              <div class="flow-content">
+                <h4>あなたの内なるジャーニー</h4>
+                <p>コーチはアドバイスをしたり、答えを差し上げたりはしません。「答えはすべてあなたの中にある」と信じています。人生の脚本家であり主人公はあなたです。</p>
+              </div>
+            </div>
+            <div class="flow-step" data-aos="fade-up" data-aos-delay="400">
+              <div class="flow-time">
+                <span class="title">クロージング</span>
+                <span class="time">(60分)</span>
+              </div>
+              <div class="flow-content">
+                <h4>旅の振り返り</h4>
+                <p>コーチングの旅を振り返って、行動や意識の変化について対話します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-block">
+          <div class="section-subtitle" data-aos="fade-up">Plan & Price</div>
+          <h2 class="section-title serif" data-aos="fade-up">プラン・料金</h2>
+
+          <div class="pricing-wrap" data-aos="fade-up" data-aos-delay="100">
+            <div class="price-grid">
+
+              <div class="price-card">
+                <div class="price-card-title">単発セッション</div>
+                <div class="price-card-desc">お試しで受けたい方へ<br>(60分)</div>
+                <div class="price-card-bottom">
+                  <div class="price-monitor">15,000円〜</div>
+                </div>
+              </div>
+
+              <div class="price-card recommend">
+                <div class="price-card-title" style="color: var(--color-accent);">6回セッション <span
+                    style="font-size: 0.8rem; font-weight: normal; background: var(--color-accent); color: #fff; padding: 2px 8px; border-radius: 4px; margin-left: 5px;">推奨</span>
+                </div>
+                <div class="price-card-desc">しっかり変化を感じたい方へ<br>(導入120分 ＋ 60分×6回)</div>
+                <div class="price-card-bottom">
+                  <div class="price-monitor">120,000円</div>
+                </div>
+              </div>
+
+              <div class="price-card">
+                <div class="price-card-title">6回以上継続の場合</div>
+                <div class="price-card-desc">さらに深めたい方へ<br>(随時追加OK)</div>
+                <div class="price-card-bottom">
+                  <div class="price-monitor">+15,000円 <span style="font-size: 0.9rem; font-weight: normal;">/回</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="pricing-note">
+              <h4 class="serif">なぜ継続セッションが大切なのか</h4>
+              <p>
+                長年育ててきた思考や感情のくせは、1回ではなかなか変わりません。ジムに一度行っただけでは筋肉がつかないように、コーチングも<strong>“継続”</strong>があってこそ、変化が定着します。少しずつ、やさしく整えていく時間こそが、自分らしい未来への第一歩になります。
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="voice" class="bg-sub">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">Voices</div>
+        <h2 class="section-title serif" data-aos="fade-up">お客様・仲間の声</h2>
+
+        <div class="voice-grid">
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="voice-label">クライアント様より</span>
+            <p class="voice-text">
+              Hiroyaさんのコーチングを通して、自分では向き合っているつもりだった悩みに、実は正面から向き合えていなかったことに気づきました。質問を重ねていただく中で、「本当はこうしたかったんだ」といった感情が自然に掘り起こされ、自分の心の声を初めてしっかり聞けた気がします。どんな感情も否定せず、寄り添って聞いてくださったことがとても安心できて、心が軽くなりました。
+            </p>
+          </div>
+
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="voice-label">クライアント様より</span>
+            <p class="voice-text">
+              元彼が何年も忘れられない・・・というテーマから始めたのですが、1回目のセッションの時にHiroyaさんが一緒に感情を味わって下さって、今までにない感覚を得ました。2回目のセッションまでに元彼の事が全く気にならなくなっていた自分がそこにいて、新しく気になる人まで現われて、本当に驚きです。毎回気づきが多く、質問にはいつもハッとさせられます。
+            </p>
+          </div>
+
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="300">
+            <span class="voice-label">コーチ仲間より</span>
+            <p class="voice-text">Hiroyaのコーチングには愛とユーモアもあり、太陽のような明るさがある。時におっさんみたいなたくましさを感じる(笑)
+              そんな人柄から滲み出る関わりに惹かれている。一緒だったらワクワクする世界を見に行ける！</p>
+          </div>
+
+          <div class="voice-card" data-aos="fade-up" data-aos-delay="400">
+            <span class="voice-label">コーチ仲間より</span>
+            <p class="voice-text">
+              周囲を明るく照らす存在でありながら、痛みや困難も知るからこその深い共感力と優しさを持っている。感受性とユーモアに富み、喜びも怒りも悲しみも素直に表現できるからこそ、嘘偽りがなく信頼できる存在。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">About Me</div>
+        <h2 class="section-title serif" data-aos="fade-up">プロフィール</h2>
+
+        <div class="profile-wrap" data-aos="fade-up" data-aos-delay="100">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80"
+              alt="Hiroya Hishiko プロフィール写真">
+          </div>
+          <div class="profile-text">
+            <h3 class="serif">Hiroya Hishiko</h3>
+            <p class="role">office HH / 恋愛・ライフコーチ / パーソナルカラーアナリスト</p>
+            <ul class="profile-list">
+              <li><i class="fa-solid fa-building"></i> 2000年より自動車部品メーカー勤務。<br>現在、人事総務部として採用・教育を担当。</li>
+              <li><i class="fa-solid fa-child-reaching"></i> 2児の母（7歳＆5歳の男の子）</li>
+              <li><i class="fa-solid fa-location-dot"></i> 愛知県西尾市在住</li>
+              <li style="margin-top: 15px;"><i class="fa-regular fa-heart"></i> <strong>好きなこと：</strong> 読書、ヨガ、焚き火、川遊び、旅行
+              </li>
+              <li><i class="fa-regular fa-star"></i> <strong>叶えたいこと：</strong> 「百花繚乱な世界」<br>〜それぞれの個性が調和しながら美しく咲き誇っている世界〜
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="story-box" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="serif">私の想い</h3>
+          <p>
+            私が恋愛・ライフコーチとして歩み始めたのは、恋愛で深く傷ついた経験があったからです。<br>何度も同じことで悩み、自分を責め、誰かを信じることさえ怖くなっていたあの頃——<br>そんな私を救ってくれたのは、アドバイスをくれた人ではなく、ただそばにいて、静かに話を聴いてくれた友人の存在でした。
+          </p>
+          <p>言葉ではなく、さりげない気遣いや、そっと寄り添う温かさ。その優しさが、私の心の傷を静かに癒してくれたのです。<br>この体験こそが、今の私の原点になっています。</p>
+          <p>恋愛・ライフコーチとして日々感じているのは、恋愛の悩みは <strong>”ほんの入口”</strong>
+            にすぎないということ。<br>そこから自分自身と深く向き合い、人生全体のテーマへと広がっていくことがあります。<br>コーチの問いかけは、自分ひとりでは気づけなかった視点、新たな選択肢、そして未来の可能性を照らしてくれます。
+          </p>
+          <p>「なんだか自分と向き合うのが怖いな」「コーチングって、よく分からないな」<br>そんな風に感じている方こそ、ぜひ一度お話してみませんか？<br>体験セッションでは、安心してコーチングに触れていただけます。</p>
+          <p>
+            3か月後、半年後、1年後——あなたはどんな自分になっていたいですか？その時、見えている景色は、どんなものでしょうか？<br>今はまだ具体的にイメージできなくても、大丈夫です。<br>まずは、あなたのペースで一歩を踏み出してみてください。
+          </p>
+          <p>
+            必要であれば、私はそっと背中を押しますし、「せーの♪」と思い切ってジャンプすることだってできます。<br>どんな感情があっても大丈夫。「こんなこと言ってもいいのかな」と思うことも、全部吐き出してOKです。<br>今のあなたのままで、何も問題ありません。<br>人はもともと創造力と才知にあふれ、欠けることのない存在だと信じています。
+          </p>
+          <p
+            style="text-align: center; font-weight: 500; color: var(--color-accent); margin-top: 40px; font-size: 1.1rem; font-family: var(--font-heading);">
+            どんなときも、あなたと共にいます。<br>あなたと出会えたことに、心から感謝しています♡<br>最後まで読んでくださり、本当にありがとうございました。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-subtitle" data-aos="fade-up">Contact</div>
+        <h2 class="section-title serif" data-aos="fade-up">ご予約・お問い合わせ</h2>
+        <p style="text-align: center; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
+          無料体験セッションのお申し込みや、ご質問などお気軽にご連絡ください。</p>
+
+        <div class="form-wrapper" data-aos="fade-up" data-aos-delay="200">
+          <form action="https://ssgform.com/s/YOUR_FORM_ID_HERE" method="POST">
+            <div class="form-group">
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" class="form-control" required placeholder="例：山田 花子">
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" class="form-control" required
+                placeholder="例：info@example.com">
+            </div>
+            <div class="form-group">
+              <label for="type">ご希望のメニュー</label>
+              <select id="type" name="type" class="form-control">
+                <option value="無料体験セッション(60分)">無料体験セッション(60分)</option>
+                <option value="単発セッション(60分)">単発セッション(60分)</option>
+                <option value="継続セッション">継続セッション</option>
+                <option value="その他のお問い合わせ">その他のお問い合わせ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">メッセージ・ご相談内容 <span class="required">必須</span></label>
+              <textarea id="message" name="message" class="form-control" required
+                placeholder="ご希望の日時（第3希望まで）や、現在気になっていることなどをご自由にご記入ください。"></textarea>
+            </div>
+
+            <button type="submit" class="btn-cta btn-submit">送信する</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 office HH / Hiroya Hishiko. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // 1. AOS (スクロールアニメーション) の初期化
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100
+    });
+
+    // 2. Sticky Frost Glass ヘッダーの制御
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // 3. スムーススクロール (ページ内リンク用)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerHeight = document.getElementById('header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
