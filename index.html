@@ -280,7 +280,7 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.3);
-      z-index: 1000;
+      z-index: 990;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -1166,17 +1166,46 @@
 
 <body>
 
+  <script>
+    // グローバル関数: ナビリンクのスムーススクロール（CDN不要）
+    function navigateTo(targetId) {
+      // メニューを閉じる
+      var h = document.getElementById('hamburger');
+      var n = document.getElementById('navMenu');
+      var o = document.getElementById('mobileOverlay');
+      if (h) h.classList.remove('active');
+      if (n) n.classList.remove('active');
+      if (o) o.classList.remove('active');
+      document.body.classList.remove('menu-open');
+
+      // 遅延してスクロール
+      setTimeout(function () {
+        if (targetId === '#') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        var el = document.querySelector(targetId);
+        if (el) {
+          var header = document.getElementById('header');
+          var offset = header ? header.offsetHeight : 0;
+          var pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
+      }, 150);
+    }
+  </script>
+
   <header id="header">
     <div class="container header-inner">
       <div class="logo">Hishiya Hiroko</div>
       <nav class="nav-menu" id="navMenu">
-        <a href="#">ホーム</a>
-        <a href="#profile">プロフィール</a>
-        <a href="#service">コーチングについて</a>
-        <a href="#flow">セッションの流れ</a>
-        <a href="#pricing">料金</a>
-        <a href="#voice">お客様の声</a>
-        <a href="#contact" class="mobile-only">予約・相談</a>
+        <a href="#" onclick="navigateTo('#');return false;">ホーム</a>
+        <a href="#profile" onclick="navigateTo('#profile');return false;">プロフィール</a>
+        <a href="#service" onclick="navigateTo('#service');return false;">コーチングについて</a>
+        <a href="#flow" onclick="navigateTo('#flow');return false;">セッションの流れ</a>
+        <a href="#pricing" onclick="navigateTo('#pricing');return false;">料金</a>
+        <a href="#voice" onclick="navigateTo('#voice');return false;">お客様の声</a>
+        <a href="#contact" class="mobile-only" onclick="navigateTo('#contact');return false;">予約・相談</a>
       </nav>
       <a href="#contact" class="btn-cta header-cta">予約・相談</a>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
@@ -1560,132 +1589,161 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // 1. AOS (スクロールアニメーション) の初期化
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 100
-    });
+    document.addEventListener('DOMContentLoaded', function () {
 
-    // 2. Sticky Frost Glass ヘッダーの制御
-    window.addEventListener('scroll', function () {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+      // 1. AOS
+      try { AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true, offset: 100 }); } catch (e) { }
 
-    // 3. ハンバーガーメニューの制御（スムーススクロールより先に定義）
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    const mobileOverlay = document.getElementById('mobileOverlay');
-
-    function closeMenu() {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      mobileOverlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
-
-    function toggleMenu() {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      mobileOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    }
-
-    hamburger.addEventListener('click', toggleMenu);
-    mobileOverlay.addEventListener('click', closeMenu);
-
-    // 4. スムーススクロール (ページ内リンク用)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          closeMenu();
-          return;
+      // 2. Sticky header
+      var header = document.getElementById('header');
+      window.addEventListener('scroll', function () {
+        if (header) {
+          if (window.scrollY > 50) { header.classList.add('scrolled'); }
+          else { header.classList.remove('scrolled'); }
         }
-
-        const target = document.querySelector(targetId);
-        if (target) {
-          const headerHeight = document.getElementById('header').offsetHeight;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-        closeMenu();
       });
-    });
 
-    // 5. プライバシーポリシーモーダルの制御
-    const privacyModal = document.getElementById('privacyModal');
-    const openPrivacy = document.getElementById('openPrivacy');
-    const closePrivacyBtn = document.getElementById('closePrivacy');
+      // 3. ハンバーガーメニュー
+      var hamburger = document.getElementById('hamburger');
+      var navMenu = document.getElementById('navMenu');
+      var mobileOverlay = document.getElementById('mobileOverlay');
 
-    openPrivacy.addEventListener('click', function (e) {
-      e.preventDefault();
-      privacyModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-
-    closePrivacyBtn.addEventListener('click', function () {
-      privacyModal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
-    privacyModal.addEventListener('click', function (e) {
-      if (e.target === privacyModal) {
-        privacyModal.classList.remove('active');
-        document.body.style.overflow = '';
+      function closeMenu() {
+        if (hamburger) hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (mobileOverlay) mobileOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
-    });
 
-    // 6. プライバシーチェックボックスによる送信ボタン制御
-    const privacyCheck = document.getElementById('privacyCheck');
-    const submitBtn = document.getElementById('submitBtn');
-
-    privacyCheck.addEventListener('change', function () {
-      submitBtn.disabled = !this.checked;
-    });
-
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      if (!privacyCheck.checked) {
-        e.preventDefault();
-        alert('プライバシーポリシーに同意してください。');
+      if (hamburger) {
+        hamburger.addEventListener('click', function () {
+          hamburger.classList.toggle('active');
+          if (navMenu) navMenu.classList.toggle('active');
+          if (mobileOverlay) mobileOverlay.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
       }
-    });
 
-    // 7. 「私の想い」続きを読むトグル
-    const storyToggle = document.getElementById('storyToggle');
-    const storyHidden = document.getElementById('storyHidden');
-    const storyFade = document.getElementById('storyFade');
-    let storyExpanded = false;
-
-    storyToggle.addEventListener('click', function () {
-      storyExpanded = !storyExpanded;
-      if (storyExpanded) {
-        storyHidden.classList.add('expanded');
-        storyFade.classList.add('no-fade');
-        storyToggle.textContent = '閉じる';
-      } else {
-        storyHidden.classList.remove('expanded');
-        storyFade.classList.remove('no-fade');
-        storyToggle.textContent = '続きを読む';
-        // 折りたたんだ後、「私の想い」までスクロール
-        const storyBox = document.querySelector('.story-box');
-        if (storyBox) {
-          const headerH = document.getElementById('header').offsetHeight;
-          const pos = storyBox.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
-          window.scrollTo({ top: pos, behavior: 'smooth' });
-        }
+      if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMenu);
       }
+
+      // 4. スムーススクロール — ナビメニュー専用（イベントデリゲーション）
+      if (navMenu) {
+        navMenu.addEventListener('click', function (e) {
+          var link = e.target.closest('a');
+          if (!link) return;
+          e.preventDefault();
+          e.stopPropagation();
+          var targetId = link.getAttribute('href');
+          closeMenu();
+          setTimeout(function () {
+            if (targetId === '#') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              return;
+            }
+            var target = document.querySelector(targetId);
+            if (target) {
+              var headerHeight = document.getElementById('header').offsetHeight || 0;
+              var pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+              window.scrollTo({ top: pos, behavior: 'smooth' });
+            }
+          }, 100);
+        });
+      }
+
+      // 4b. CTAボタン等、その他ページ内リンク
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        if (navMenu && navMenu.contains(anchor)) return;
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+          }
+          var target = document.querySelector(targetId);
+          if (target) {
+            var headerHeight = document.getElementById('header').offsetHeight || 0;
+            var pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({ top: pos, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // 5. プライバシーポリシーモーダル
+      var privacyModal = document.getElementById('privacyModal');
+      var openPrivacy = document.getElementById('openPrivacy');
+      var closePrivacyBtn = document.getElementById('closePrivacy');
+
+      if (openPrivacy && privacyModal) {
+        openPrivacy.addEventListener('click', function (e) {
+          e.preventDefault();
+          privacyModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      if (closePrivacyBtn && privacyModal) {
+        closePrivacyBtn.addEventListener('click', function () {
+          privacyModal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+      if (privacyModal) {
+        privacyModal.addEventListener('click', function (e) {
+          if (e.target === privacyModal) {
+            privacyModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      // 6. プライバシーチェックボックス
+      var privacyCheck = document.getElementById('privacyCheck');
+      var submitBtn = document.getElementById('submitBtn');
+      var contactForm = document.getElementById('contactForm');
+
+      if (privacyCheck && submitBtn) {
+        privacyCheck.addEventListener('change', function () {
+          submitBtn.disabled = !this.checked;
+        });
+      }
+      if (contactForm && privacyCheck) {
+        contactForm.addEventListener('submit', function (e) {
+          if (!privacyCheck.checked) {
+            e.preventDefault();
+            alert('プライバシーポリシーに同意してください。');
+          }
+        });
+      }
+
+      // 7. 「私の想い」続きを読む
+      var storyToggle = document.getElementById('storyToggle');
+      var storyHidden = document.getElementById('storyHidden');
+      var storyFade = document.getElementById('storyFade');
+      var storyExpanded = false;
+
+      if (storyToggle && storyHidden && storyFade) {
+        storyToggle.addEventListener('click', function () {
+          storyExpanded = !storyExpanded;
+          if (storyExpanded) {
+            storyHidden.classList.add('expanded');
+            storyFade.classList.add('no-fade');
+            storyToggle.textContent = '閉じる';
+          } else {
+            storyHidden.classList.remove('expanded');
+            storyFade.classList.remove('no-fade');
+            storyToggle.textContent = '続きを読む';
+            var storyBox = document.querySelector('.story-box');
+            if (storyBox) {
+              var headerH = document.getElementById('header').offsetHeight || 0;
+              var pos = storyBox.getBoundingClientRect().top + window.pageYOffset - headerH - 20;
+              window.scrollTo({ top: pos, behavior: 'smooth' });
+            }
+          }
+        });
+      }
+
     });
   </script>
 </body>
